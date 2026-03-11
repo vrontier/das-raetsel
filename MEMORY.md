@@ -61,3 +61,11 @@
 - Tests für Puzzle-Auswertung
 - Test für Static-Serving
 - Test für Session-Fallback bei nicht mehr vorhandener Szene
+
+### Zusammenarbeit / nächster Einstieg
+- Kommunikation bevorzugt auf Deutsch.
+- Der aktuelle Stand wurde als "guter Start" bestätigt.
+- Vereinbarte sinnvolle nächste Ausbaustufen:
+  - Spiel-State erweitern (Inventar/Fortschritt statt nur `solved` pro Szene)
+  - Kapitelstruktur mit Story-Wechsel ohne Session-Brüche
+  - Authoring-Tooling (Schema-Validierung + Vorschau)
