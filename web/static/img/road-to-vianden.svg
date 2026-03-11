@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Das Rätsel - Platzhalterbild</title>
+  <desc id="desc">Platzhalter für Szene</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#0ea5e9"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <circle cx="1040" cy="120" r="120" fill="#ffffff" opacity="0.2"/>
+  <circle cx="180" cy="560" r="160" fill="#ffffff" opacity="0.12"/>
+  <rect x="80" y="90" width="1040" height="495" rx="28" fill="#fffdf9" opacity="0.93"/>
+  <text x="600" y="280" text-anchor="middle" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="60" font-weight="700" fill="#1f2937">Das Rätsel</text>
+  <text x="600" y="350" text-anchor="middle" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="36" fill="#4b5563">Szene-Bild folgt</text>
+  <text x="600" y="410" text-anchor="middle" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="26" fill="#6b7280">/static/img/...</text>
+</svg>

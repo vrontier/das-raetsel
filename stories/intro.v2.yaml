@@ -1,0 +1,204 @@
+story:
+  id: "verschwundene-goldene-frau"
+  title: "Das Rätsel um die verschwundene Goldene Frau"
+  language: "de"
+  start_scene: "start"
+
+scenes:
+  - id: "start"
+    title: "Place de la Constitution"
+    text: >
+      Du stehst auf der Place de la Constitution in Luxemburg-Stadt. Dort, wo sonst die
+      Goldene Frau hoch über dem Tal glänzt, ist nur noch ein leerer Sockel zu sehen.
+      Einige Menschen flüstern aufgeregt miteinander. Auf dem Boden liegt ein zusammengefalteter
+      Zettel. Wenn du das Rätsel lösen willst, musst du jetzt ganz genau hinschauen.
+    image: "/static/img/place-de-la-constitution.svg"
+    choices:
+      - label: "Den Zettel aufheben"
+        next: "note"
+      - label: "Die Umgebung absuchen"
+        next: "lookout"
+    hint: "Beginne mit der Spur, die direkt vor dir liegt."
+    solution_fragment: ""
+
+  - id: "note"
+    title: "Der erste Hinweis"
+    text: >
+      Auf dem Zettel steht in sauberer Schrift:
+      'Wer nur schaut, sieht nichts. Wer liest, entdeckt den Weg.'
+      Darunter steht noch ein zweiter Satz:
+      'Suche dort, wo Brücke und Tal einander begegnen.'
+      Jemand will eindeutig, dass du einer Spur folgst.
+    image: "/static/img/first-note.svg"
+    choices:
+      - label: "Zum Aussichtspunkt gehen"
+        next: "lookout"
+      - label: "Erst mehr über den Ort herausfinden"
+        next: "plaque"
+    hint: "Der Hinweis nennt zwei Dinge: eine Brücke und ein Tal."
+    puzzle:
+      type: "reading_question"
+      prompt: "Was sollst du laut Zettel tun, um den Weg zu entdecken?"
+      accepted_answers:
+        - "lesen"
+        - "genau lesen"
+        - "den zettel lesen"
+      success_text: "Richtig. Lesen ist dein erster Schlüssel."
+      failure_text: "Lies den Zettel noch einmal ganz genau."
+    solution_fragment: "W"
+
+  - id: "plaque"
+    title: "Die Bronzetafel"
+    text: >
+      Am Sockel entdeckst du eine Bronzetafel. Dort steht, dass die Goldene Frau nicht nur
+      ein Denkmal ist, sondern auch an Menschen erinnert. Plötzlich verstehst du:
+      Es geht hier nicht nur um ein verschwundenes Objekt. Es geht um Erinnerung.
+      Auf der Rückseite der Tafel klebt ein kleiner goldener Papierstern.
+    image: "/static/img/plaque.svg"
+    choices:
+      - label: "Den Stern untersuchen"
+        next: "star"
+      - label: "Zum Aussichtspunkt gehen"
+        next: "lookout"
+    hint: "Die Tafel verrät dir, warum die Goldene Frau wichtig ist."
+    puzzle:
+      type: "reading_question"
+      prompt: "Worum geht es bei der Goldenen Frau laut Tafel noch?"
+      accepted_answers:
+        - "erinnerung"
+        - "an menschen erinnern"
+        - "gedenken"
+      success_text: "Genau. Die Spur hat mit Erinnerung zu tun."
+      failure_text: "Die Antwort steht direkt im Text."
+    solution_fragment: "E"
+
+  - id: "lookout"
+    title: "Blick über das Tal"
+    text: >
+      Du gehst ein paar Schritte weiter bis zum Geländer. Von hier aus blickst du in das
+      Pétruss-Tal. Vor dir spannt sich die große Brücke über die Tiefe. Der Zettel hatte recht:
+      Hier begegnen sich Brücke und Tal. Zwischen zwei Steinen am Geländer steckt ein zweiter
+      Hinweis.
+    image: "/static/img/petruss-lookout.svg"
+    choices:
+      - label: "Den zweiten Hinweis lesen"
+        next: "star"
+      - label: "Zurück zum Sockel"
+        next: "start"
+    hint: "Hier treffen sich die beiden Wörter aus dem ersten Hinweis."
+    puzzle:
+      type: "fill_in_blank"
+      prompt: "Ergänze die beiden fehlenden Wörter: 'Suche dort, wo ___ und ___ einander begegnen.'"
+      fields:
+        - name: "word1"
+          accepted_answers: ["brücke", "die brücke"]
+        - name: "word2"
+          accepted_answers: ["tal", "das tal", "pétruss-tal", "petruss-tal"]
+      success_text: "Gut kombiniert. Du bist auf der richtigen Spur."
+      failure_text: "Sieh dich um: Was spannt sich über die Tiefe?"
+    solution_fragment: "R"
+
+  - id: "star"
+    title: "Der goldene Stern"
+    text: >
+      Der zweite Hinweis ist auf einen kleinen goldenen Stern geschrieben:
+      'Ordne die Worte, dann findest du den nächsten Ort.'
+      Daneben liegen vier Papierstreifen:
+      'unter der Erde', 'liegt die Spur', 'nicht im Licht', 'sondern im Echo'.
+      Das klingt nach einem Ort unter der Stadt.
+    image: "/static/img/golden-star.svg"
+    choices:
+      - label: "Die Worte ordnen"
+        next: "casemates"
+      - label: "Noch einmal lesen"
+        next: "star"
+    hint: "Zuerst kommt der Ort, dann die Aussage über die Spur."
+    puzzle:
+      type: "sentence_order"
+      prompt: "Bringe die Satzteile in die richtige Reihenfolge."
+      items:
+        - "unter der Erde"
+        - "liegt die Spur"
+        - "nicht im Licht"
+        - "sondern im Echo"
+      accepted_order:
+        - "unter der Erde"
+        - "liegt die Spur"
+        - "nicht im Licht"
+        - "sondern im Echo"
+      success_text: "Der Satz ergibt Sinn. Du brauchst einen Ort unter der Erde."
+      failure_text: "Versuche zuerst mit dem Ort zu beginnen."
+    solution_fragment: "L"
+
+  - id: "casemates"
+    title: "Die Kasematten"
+    text: >
+      Du folgst der Spur zu den alten unterirdischen Gängen der Stadt. In den Kasematten ist
+      es kühl und still. Jeder Schritt hallt an den Steinwänden wider. An einer Mauer findest du
+      zwei eingeritzte Sätze:
+      'Der nächste Hinweis wartet dort, wo Menschen verkaufen, reden und lachen.'
+      'Frage freundlich. Wer tröstet, erfährt mehr als wer drängt.'
+      Jemand will, dass du nicht nur scharf denkst, sondern auch gut zuhörst.
+    image: "/static/img/casemates.svg"
+    choices:
+      - label: "Zum Markt gehen"
+        next: "market"
+      - label: "Die Sätze noch einmal prüfen"
+        next: "casemates"
+    hint: "Der nächste Ort ist lebendig und voller Gespräche."
+    puzzle:
+      type: "combine_clues"
+      prompt: "Welcher Ort passt zu beiden Sätzen am besten?"
+      accepted_answers:
+        - "markt"
+        - "wochenmarkt"
+        - "marktplatz"
+        - "place guillaume"
+        - "place guillaume ii"
+      success_text: "Ja, dort treffen Menschen sich zum Reden und Verkaufen."
+      failure_text: "Gesucht ist ein Ort, an dem viele Menschen zusammenkommen."
+    solution_fragment: "I"
+
+  - id: "market"
+    title: "Der Markt und die Blumenfrau"
+    text: >
+      Auf dem Markt herrscht geschäftiges Treiben. Zwischen Körben, Blumen und Stimmen entdeckst
+      du eine ältere Blumenfrau. Sie wirkt nervös, als hätte sie etwas Wichtiges gesehen.
+      Neben ihrem Stand hängt ein Schild mit drei gezeichneten Symbolen: einer Brücke, einer Krone
+      und einem Schlosstor. Die Blumenfrau sagt leise:
+      'Ich helfe dir, wenn du die richtige Frage stellst.'
+      Hier endet der erste Abschnitt deiner Suche. Die Spur führt weiter nach Norden.
+    image: "/static/img/market-flower-woman.svg"
+    choices:
+      - label: "Ruhig und freundlich fragen"
+        next: "end_intro"
+      - label: "Drängend nach dem Täter fragen"
+        next: "end_intro"
+    hint: "Freundlichkeit bringt dich weiter als Druck."
+    puzzle:
+      type: "dialog_choice"
+      prompt: "Welche Art zu fragen ist hier am besten?"
+      options:
+        - id: "kind"
+          text: "Ruhig und freundlich fragen"
+        - id: "pushy"
+          text: "Drängend nach dem Täter fragen"
+      accepted_option: "kind"
+      success_text: "Die Blumenfrau nickt. 'Gut. Dann hör mir genau zu...'"
+      failure_text: "Sie weicht zurück. So wirst du kaum Vertrauen gewinnen."
+    solution_fragment: "E"
+
+  - id: "end_intro"
+    title: "Die Spur nach Vianden"
+    text: >
+      Die Blumenfrau verrät dir den nächsten entscheidenden Hinweis:
+      'Die Spur endet nicht hier in der Stadt. Folge dem Fluss, folge der Erinnerung,
+      und suche dort weiter, wo ein Schloss über dem Tal wacht.'
+      Jetzt weißt du, dass dein Weg dich nach Vianden führen wird.
+      Du hast die ersten Hinweise gesammelt. Das eigentliche Abenteuer beginnt erst jetzt.
+    image: "/static/img/road-to-vianden.svg"
+    choices:
+      - label: "Intro erneut spielen"
+        next: "start"
+    hint: "Das Schloss über dem Tal ist dein nächstes großes Ziel."
+    solution_fragment: "S"

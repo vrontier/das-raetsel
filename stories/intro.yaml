@@ -1,0 +1,33 @@
+title: "Das Rätsel um die verschwundene Goldene Frau"
+start_scene: "start"
+scenes:
+  start:
+    title: "Place de la Constitution"
+    text: "Du stehst auf der Place de la Constitution in Luxemburg-Stadt. Die Goldene Frau ist verschwunden. Wo suchst du zuerst?"
+    choices:
+      - label: "Im Stadtpark"
+        next: "park"
+      - label: "Im Museum"
+        next: "museum"
+  park:
+    title: "Spur im Park"
+    text: "Im Park findest du glitzernde Fußspuren. Diese führen zur alten Brücke."
+    choices:
+      - label: "Zur Brücke gehen"
+        next: "bridge"
+      - label: "Zurück zum Platz"
+        next: "start"
+  museum:
+    title: "Hinweis im Museum"
+    text: "Ein Wächter zeigt dir ein Bild mit einem versteckten Symbol auf der Rückseite."
+    choices:
+      - label: "Symbol untersuchen"
+        next: "bridge"
+      - label: "Zurück zum Platz"
+        next: "start"
+  bridge:
+    title: "Die alte Brücke"
+    text: "Unter der Brücke findest du eine Kiste. Darin liegt ein Rätselbrief. Fortsetzung folgt..."
+    choices:
+      - label: "Neu starten"
+        next: "start"
